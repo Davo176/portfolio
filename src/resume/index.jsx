@@ -2,13 +2,15 @@ import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp,faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
+import { motion, AnimatePresence } from "framer-motion";
 
-function CollapsableResumeSection({header,children}){
-  const [open,setOpen] = useState(true);
+
+function CollapsableResumeSection({defaultOpen=false,header,children}){
+  const [open,setOpen] = useState(defaultOpen);
   
   return (
     <div className="flex flex-col pb-2">
-      <div className="flex flex-row flex-grow gap-3 pb-2">
+      <div className="flex flex-row flex-grow justify-between gap-3 pb-2">
         <h2 className="text-slate-100 text-2xl calsans">
           {header}
         </h2>
@@ -20,9 +22,20 @@ function CollapsableResumeSection({header,children}){
           />
         </div>
       </div>
-      {
-        open && children
-      }
+      <AnimatePresence>
+
+        {open && (
+          <motion.div
+            initial={{height:0}}
+            animate={{height:'auto'}}
+            exit   ={{height:0}}
+            transition={{type:'just',stiffness:100,dampinig:0}}
+            className="overflow-hidden"
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
@@ -36,8 +49,8 @@ function Home() {
           <h1 className="text-slate-100 text-6xl calsans pb-2">
             <span>Resume</span>
           </h1>
-          <CollapsableResumeSection header={<span className="text-4xl">Work</span>}>
-            <CollapsableResumeSection header={<span className="text-2xl"><strong>FYI</strong> - <strong>Software Engineer</strong></span>}>
+          <CollapsableResumeSection defaultOpen={true} header={<span className="text-4xl">Work</span>}>
+            <CollapsableResumeSection defaultOpen={false} header={<span className="text-2xl"><strong>FYI</strong> - <strong>Software Engineer</strong></span>}>
               <ul>
                 <li className="text-slate-100 text-sm">
                     Built a reporting module for accountants to schedule beautiful exports of their Jobs, Clients, Invoices and Time Entries to excel.
@@ -54,8 +67,8 @@ function Home() {
               </ul>
             </CollapsableResumeSection>
           </CollapsableResumeSection>
-          <CollapsableResumeSection header={<span className="text-4xl">Education</span>}>
-            <CollapsableResumeSection header={<span className="text-2xl">The University of Adelaide</span>}>
+          <CollapsableResumeSection defaultOpen={true} header={<span className="text-4xl">Education</span>}>
+            <CollapsableResumeSection defaultOpen={false} header={<span className="text-2xl">The University of Adelaide</span>}>
               <ul>
                 <li className="text-slate-100 text-sm">
                   Graduated in 2020 with a 99.95 University Entrance Score including Merits in Specialist Mathematics, Mathematical Methods and Headstart Maths. 
