@@ -5,7 +5,7 @@ import { faChevronUp,faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { motion, AnimatePresence } from "framer-motion";
 
 
-function CollapsableResumeSection({defaultOpen=false,header,children}){
+function CollapsableResumeSection({defaultOpen=false,header,children,paragraphs}){
   const [open,setOpen] = useState(defaultOpen);
   
   return (
@@ -32,7 +32,13 @@ function CollapsableResumeSection({defaultOpen=false,header,children}){
             transition={{type:'just',stiffness:100,dampinig:0}}
             className="overflow-hidden"
           >
-            {children}
+            {paragraphs ? 
+              <ul>
+                {paragraphs.map(paragraph=><li className="text-slate-100 text-sm">{paragraph}</li>)}
+              </ul> 
+            :
+              children
+            }
           </motion.div>
         )}
       </AnimatePresence>
@@ -50,34 +56,22 @@ function Home() {
             <span>Resume</span>
           </h1>
           <CollapsableResumeSection defaultOpen={true} header={<span className="text-4xl">Work</span>}>
-            <CollapsableResumeSection defaultOpen={false} header={<span className="text-2xl"><strong>FYI</strong> - <strong>Software Engineer</strong></span>}>
-              <ul>
-                <li className="text-slate-100 text-sm">
-                    Built a reporting module for accountants to schedule beautiful exports of their Jobs, Clients, Invoices and Time Entries to excel.
-                </li>
-                <li className="text-slate-100 text-sm">
-                    Ported existing custom grid's to AG-Grid, implementing Filtering, Sorting, Grouping, Aggregates and Infinite Scroll.
-                </li>
-                <li className="text-slate-100 text-sm">
-                    Built a full stack CRUD feature allowing users to create and maintain "Task Templates" - Allowing users to quickly create tasks they often have to assign, either manually or via automations.
-                </li>
-                <li className="text-slate-100 text-sm">
-                    Developed a self-sustaining internal reporting system for FYI Docs, in Power BI, collecting data from multitudes of API's using NodeJS, and collating it in  an mssql database.
-                </li>
-              </ul>
-            </CollapsableResumeSection>
+            <CollapsableResumeSection defaultOpen={false} header={<span className="text-2xl"><strong>FYI</strong> - <strong>Software Engineer</strong></span>}
+              paragraphs={[
+                "Built a reporting module for accountants to schedule beautiful exports of their Jobs, Clients, Invoices and Time Entries to excel.",
+                "Ported existing custom grid's to AG-Grid, implementing Filtering, Sorting, Grouping, Aggregates and Infinite Scroll.",
+                "Built a full stack CRUD feature allowing users to create and maintain 'Task Templates' - Allowing users to quickly create tasks they often have to assign, either manually or via automations.",
+                "Developed a self-sustaining internal reporting system for FYI Docs, in Power BI, collecting data from multitudes of API's using NodeJS, and collating it in  an mssql database."
+              ]}
+            />
           </CollapsableResumeSection>
           <CollapsableResumeSection defaultOpen={true} header={<span className="text-4xl">Education</span>}>
-            <CollapsableResumeSection defaultOpen={false} header={<span className="text-2xl">The University of Adelaide</span>}>
-              <ul>
-                <li className="text-slate-100 text-sm">
-                  Graduated in 2020 with a 99.95 University Entrance Score including Merits in Specialist Mathematics, Mathematical Methods and Headstart Maths. 
-                </li>
-                <li className="text-slate-100 text-sm">
-                  Won Awards for Best Mathematical Student at Pembroke while completing Mathematics the year above me.
-                </li>
-              </ul>
-            </CollapsableResumeSection>
+            <CollapsableResumeSection defaultOpen={false} header={<span className="text-2xl">The University of Adelaide</span>}
+              paragraphs={[
+                "Graduated in 2020 with a 99.95 University Entrance Score including Merits in Specialist Mathematics, Mathematical Methods and Headstart Maths.",
+                "Won Awards for Best Mathematical Student at Pembroke while completing Mathematics the year above me.",
+              ]}
+            />
             {/* <CollapsableResumeSection header={<span className="text-2xl">National Computer Sciecne School</span>}>
             </CollapsableResumeSection> */}
             {/* <CollapsableResumeSection header={<span className="text-2xl">High School</span>}>

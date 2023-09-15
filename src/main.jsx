@@ -5,17 +5,15 @@ import App from './App.jsx'
 import './index.css'
 import { 
   createBrowserRouter, 
-  createRoutesFromElements, 
   RouterProvider, 
-  Route, 
-  Link, 
-  BrowserRouter,
+  Outlet,
 } from "react-router-dom";
 
 import Home from './home';
 import Resume from './resume';
 import Projects from './projects'
 import Algorithms from './algorithms'
+import LinkedList from "./algorithms/linked-list/index.jsx";
 
 const router = createBrowserRouter(
   [
@@ -37,7 +35,13 @@ const router = createBrowserRouter(
         },
         {
           path: "/algorithms",
-          element: <Algorithms />,
+          element: <Outlet/>,
+          children: [
+            {
+              path: "/algorithms/linkedlist",
+              element: <LinkedList/>
+            }
+          ]
         },
       ]
     }  
