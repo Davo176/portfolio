@@ -33,16 +33,16 @@ const router = createBrowserRouter(
           path: "/projects",
           element: <Projects />,
         },
-        {
-          path: "/algorithms",
-          element: <Outlet/>,
-          children: [
-            {
-              path: "/algorithms/linkedlist",
-              element: <LinkedList/>
-            }
-          ]
-        },
+        // {
+        //   path: "/algorithms",
+        //   element: <Outlet/>,
+        //   children: [
+        //     {
+        //       path: "/algorithms/linkedlist",
+        //       element: <LinkedList/>
+        //     }
+        //   ]
+        // },
       ]
     }  
   ]
