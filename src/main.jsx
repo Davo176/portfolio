@@ -1,55 +1,39 @@
 import "cal-sans";
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { 
-  createBrowserRouter, 
-  RouterProvider, 
-  Outlet,
-} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-import Home from './home';
-import Resume from './resume';
-import Projects from './projects'
-import Algorithms from './algorithms'
-import LinkedList from "./algorithms/linked-list/index.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const router = createBrowserRouter(
-  [
+// Create a client
+const queryClient = new QueryClient();
+
+import Home from "./home";
+import { NightingaleContentAdmin } from "./nightingale/content-admin";
+
+const router = createBrowserRouter([
     {
-      path: "/",
-      element: <App/>,
-      children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/resume",
-          element: <Resume />,
-        },
-        {
-          path: "/projects",
-          element: <Projects />,
-        },
-        // {
-        //   path: "/algorithms",
-        //   element: <Outlet/>,
-        //   children: [
-        //     {
-        //       path: "/algorithms/linkedlist",
-        //       element: <LinkedList/>
-        //     }
-        //   ]
-        // },
-      ]
-    }  
-  ]
-)
+        path: "/",
+        element: <App />,
+        children: [
+            {
+                path: "/",
+                element: <Home />,
+            },
+            {
+                path: "/nightingale/content-admin",
+                element: <NightingaleContentAdmin />,
+            },
+        ],
+    },
+]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>      
-      <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+        <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} />
+        </QueryClientProvider>
+    </React.StrictMode>,
+);
