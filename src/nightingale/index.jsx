@@ -8,7 +8,7 @@ import { faPlay } from "@fortawesome/free-solid-svg-icons";
 function Question({ question }) {
     return (
         <div className="w-full">
-            <div className="bg-white p-2 calsans w-2/3 rounded-lg rounded-br-none text-slate-600 float-right text-right">{question}</div>
+            <div className="calsans float-right w-2/3 rounded-lg rounded-br-none bg-white p-2 text-right text-slate-600">{question}</div>
         </div>
     );
 }
@@ -16,7 +16,7 @@ function Question({ question }) {
 function Answer({ answer }) {
     return (
         <div className="w-full">
-            <div className="bg-slate-600 p-2 calsans w-2/3 rounded-lg rounded-bl-none text-white float-left">{answer || "answer"}</div>
+            <div className="calsans float-left w-2/3 rounded-lg rounded-bl-none bg-slate-600 p-2 text-white">{answer || "answer"}</div>
         </div>
     );
 }
@@ -54,16 +54,16 @@ function NightingaleChat() {
 
     return (
         <>
-            <div className="bg-slate-700 w-full rounded-t-2xl p-3 text-white calsans">Nightingale</div>
-            <div className="bg-gray-300 h-[36rem] h- w-full rounded-b-2xl flex flex-col justify-between p-2">
-                <div className="flex flex-col gap-2 overflow-scroll no-scrollbar">
+            <div className="calsans w-full rounded-t-2xl bg-slate-700 p-3 text-white">Nightingale</div>
+            <div className="h- flex h-[36rem] w-full flex-col justify-between rounded-b-2xl bg-gray-300 p-2">
+                <div className="no-scrollbar flex flex-col gap-2 overflow-scroll">
                     <Answer answer="Hi, I am Nightingale, Will's Virtual Assistant" />
                     {question && <Question question={question} />}
                     {answer && <Answer answer={answer} />}
                 </div>
-                <form className="bg-white w-full rounded-lg py-1 px-3 flex items-center text-slate-600" onSubmit={submitQuestion}>
+                <form className="flex w-full items-center rounded-lg bg-white px-3 py-1 text-slate-600" onSubmit={submitQuestion}>
                     <textarea
-                        className=" calsans text-slate-600 w-full outline-none resize-none overflow-scroll no-scrollbar max-h-16 align-middle"
+                        className=" calsans no-scrollbar max-h-16 w-full resize-none overflow-scroll align-middle text-slate-600 outline-none"
                         placeholder="Ask a Question"
                         value={textAreaContent}
                         onChange={(e) => setTextAreaContent(e.target.value)}
@@ -83,13 +83,13 @@ function NightingaleBubble() {
         <div className="absolute bottom-8 right-8">
             {chatOpen && (
                 <AnimatePresence>
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute right-24 bottom-20 w-[30rem] h-fit flex flex-col items-center">
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute bottom-20 right-24 flex h-fit w-[30rem] flex-col items-center">
                         <NightingaleChat />
                     </motion.div>
                 </AnimatePresence>
             )}
-            <motion.div onClick={() => setChatOpen((open) => !open)} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="p-px w-20 h-20 bg-gray-50 rounded-xl flex justify-center items-center">
-                <img src={NightingaleLogo} alt="Nightingale Logo" className="w-fit h-fit relative inset-y-1 colour" />
+            <motion.div onClick={() => setChatOpen((open) => !open)} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="flex h-20 w-20 items-center justify-center rounded-xl bg-gray-50 p-px">
+                <img src={NightingaleLogo} alt="Nightingale Logo" className="colour relative inset-y-1 h-fit w-fit" />
             </motion.div>
         </div>
     );

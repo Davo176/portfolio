@@ -15,11 +15,11 @@ function Tab(props) {
 function App() {
     return (
         <>
-            <div className="flex flex-col h-screen bg-white">
-                <div className="w-full justify-between p-4 flex flex-col bg-gray-100 gap-2">
-                    <div className="flex flex-row justify-between items-center text-center">
-                        <div className="flex flex-row items-center justify-center text-center gap-2">
-                            <div className="p-1 rounded-md border border-gray-400">
+            <div className="flex h-screen flex-col bg-white">
+                <div className="flex w-full flex-col justify-between gap-2 bg-gray-100 p-4">
+                    <div className="flex flex-row items-center justify-between text-center">
+                        <div className="flex flex-row items-center justify-center gap-2 text-center">
+                            <div className="rounded-md border border-gray-400 p-1">
                                 <Menu />
                             </div>
                             <img src="/github-logo.png" className="h-8 rounded-full" />
