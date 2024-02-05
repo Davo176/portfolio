@@ -1,0 +1,5 @@
+{
+    "experimentalTernaries": true,
+    "printWidth": 240,
+    "tabWidth": 4
+}
