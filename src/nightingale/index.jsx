@@ -80,7 +80,7 @@ function NightingaleChat() {
 function NightingaleBubble() {
     const [chatOpen, setChatOpen] = useState(false);
     return (
-        <div className="absolute bottom-8 right-8">
+        <div className="fixed bottom-8 right-8">
             {chatOpen && (
                 <AnimatePresence>
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute bottom-20 right-24 flex h-fit w-[30rem] flex-col items-center">
