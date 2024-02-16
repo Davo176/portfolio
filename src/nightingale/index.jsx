@@ -40,7 +40,7 @@ function NightingaleChat() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "x-wd-api-key": "sk-EcI1Nn2daolEuHWe5G0pE7shYEQTaoNr9kwWuESXTPC7b1wBzvfd0QH0alKGkSAV", //DO NOT COMMIT
+                "x-wd-api-key": import.meta.env.API_KEY, //DO NOT COMMIT
             },
             mode: "cors",
             redirect: "follow",
@@ -83,12 +83,22 @@ function NightingaleBubble() {
         <div className="fixed bottom-8 right-8">
             {chatOpen && (
                 <AnimatePresence>
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute bottom-20 right-24 flex h-fit w-[30rem] flex-col items-center">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute bottom-20 right-24 flex h-fit w-[30rem] flex-col items-center"
+                    >
                         <NightingaleChat />
                     </motion.div>
                 </AnimatePresence>
             )}
-            <motion.div onClick={() => setChatOpen((open) => !open)} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="flex h-20 w-20 items-center justify-center rounded-xl bg-gray-50 p-px">
+            <motion.div
+                onClick={() => setChatOpen((open) => !open)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="flex h-20 w-20 items-center justify-center rounded-xl bg-gray-50 p-px"
+            >
                 <img src={NightingaleLogo} alt="Nightingale Logo" className="colour relative inset-y-1 h-fit w-fit" />
             </motion.div>
         </div>

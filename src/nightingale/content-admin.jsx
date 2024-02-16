@@ -52,7 +52,7 @@ async function loginPassword({ password }) {
     return await fetch(URL + "/login", {
         method: "post",
         headers: {
-            "x-wd-api-key": "sk-EcI1Nn2daolEuHWe5G0pE7shYEQTaoNr9kwWuESXTPC7b1wBzvfd0QH0alKGkSAV",
+            "x-wd-api-key": import.meta.env.API_KEY,
             "Content-Type": "application/json",
         },
         body: JSON.stringify({ password }),
