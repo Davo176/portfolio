@@ -7,7 +7,7 @@ async function getContent(token) {
     //https://portfolio-backend-production-1b52.up.railway.app
     return await fetch(URL + "/nightingale/content", {
         headers: {
-            "x-wd-api-key": "sk-EcI1Nn2daolEuHWe5G0pE7shYEQTaoNr9kwWuESXTPC7b1wBzvfd0QH0alKGkSAV",
+            "x-wd-api-key": import.meta.env.API_KEY,
             authorization: "Bearer " + token,
         },
         mode: "cors",
@@ -20,7 +20,7 @@ async function upsertContent(new_content, token) {
     return await fetch(URL + "/nightingale/content", {
         method: "POST",
         headers: {
-            "x-wd-api-key": "sk-EcI1Nn2daolEuHWe5G0pE7shYEQTaoNr9kwWuESXTPC7b1wBzvfd0QH0alKGkSAV",
+            "x-wd-api-key": import.meta.env.API_KEY,
             "Content-Type": "application/json",
             authorization: "Bearer " + token,
         },
@@ -35,7 +35,7 @@ async function deleteContentById(content, token) {
     return await fetch(URL + "/nightingale/content", {
         method: "DELETE",
         headers: {
-            "x-wd-api-key": "sk-EcI1Nn2daolEuHWe5G0pE7shYEQTaoNr9kwWuESXTPC7b1wBzvfd0QH0alKGkSAV",
+            "x-wd-api-key": import.meta.env.API_KEY,
             "Content-Type": "application/json",
             authorization: "Bearer " + token,
         },
