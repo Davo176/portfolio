@@ -6,7 +6,7 @@ const URL = "https://api.w-davis.com";
 async function getContent(token) {
     return await fetch(URL + "/nightingale/content", {
         headers: {
-            "x-wd-api-key": import.meta.env.API_KEY,
+            "x-wd-api-key": process.env.API_KEY,
             authorization: "Bearer " + token,
         },
         mode: "cors",
@@ -19,7 +19,7 @@ async function upsertContent(new_content, token) {
     return await fetch(URL + "/nightingale/content", {
         method: "POST",
         headers: {
-            "x-wd-api-key": import.meta.env.API_KEY,
+            "x-wd-api-key": process.env.API_KEY,
             "Content-Type": "application/json",
             authorization: "Bearer " + token,
         },
@@ -34,7 +34,7 @@ async function deleteContentById(content, token) {
     return await fetch(URL + "/nightingale/content", {
         method: "DELETE",
         headers: {
-            "x-wd-api-key": import.meta.env.API_KEY,
+            "x-wd-api-key": process.env.API_KEY,
             "Content-Type": "application/json",
             authorization: "Bearer " + token,
         },
@@ -51,7 +51,7 @@ async function loginPassword({ password }) {
     return await fetch(URL + "/login", {
         method: "post",
         headers: {
-            "x-wd-api-key": import.meta.env.API_KEY,
+            "x-wd-api-key": process.env.API_KEY,
             "Content-Type": "application/json",
         },
         body: JSON.stringify({ password }),
