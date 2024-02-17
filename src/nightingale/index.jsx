@@ -40,7 +40,7 @@ function NightingaleChat() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "x-wd-api-key": process.env.API_KEY, //DO NOT COMMIT
+                "x-wd-api-key": "pk-EcI1Nn2daolEuHWe5G0pE7shYEQTaoNr9kwWuESXTPC7b1wBzvfd0QH0alKGkSAV", //DO NOT COMMIT
             },
             mode: "cors",
             redirect: "follow",
