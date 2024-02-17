@@ -15,7 +15,7 @@ function WillDavis() {
                 Intelligence and Evolutionary Computation.
             </p>
             <p className="pt-2">
-                I graduate from Pembroke College with a 99.80 raw ATAR, which gets scaled to the perfect 99.95 university enterence score. I achieved 19.9/20 in
+                I graduate from Pembroke College with a 99.80 raw ATAR, which gets scaled to the perfect 99.95 university entrance score. I achieved 19.9/20 in
                 both Year 12 Specialist Maths and Math Methods (the top two maths streams), while I was in Year 11, allowing me to start university maths while
                 I was in year 12. I was awarded the best mathematical student out of the Year 12 students while I was in Year 11, and in Year 12 I was awarded
                 the Margret Meadows award for exceptional engineering. I also won the Australian Defence Force 'Future Innovators' award.
