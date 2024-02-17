@@ -36,7 +36,7 @@ function NightingaleChat() {
     }
 
     async function askQuestion(question) {
-        let response = await fetch("https://portfolio-backend-production-1b52.up.railway.app/nightingale/answer", {
+        let response = await fetch("https://api.w-davis.com/nightingale/answer", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

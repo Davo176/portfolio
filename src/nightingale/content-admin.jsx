@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Edit, Trash2, PlusCircle, Check } from "lucide-react";
 
-const URL = "https://portfolio-backend-production-1b52.up.railway.app";
+const URL = "https://api.w-davis.com";
 async function getContent(token) {
-    //https://portfolio-backend-production-1b52.up.railway.app
     return await fetch(URL + "/nightingale/content", {
         headers: {
             "x-wd-api-key": import.meta.env.API_KEY,
