@@ -1,6 +1,6 @@
 import { PageHeader, SectionHeader } from "../../components";
 
-function BlockModel(props) {
+function BlockModel() {
     return (
         <div>
             <PageHeader>

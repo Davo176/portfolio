@@ -1,6 +1,6 @@
 import { PageHeader, SectionHeader } from "../../components";
 
-function URLShortner(props) {
+function URLShortner() {
     return (
         <div>
             <PageHeader>

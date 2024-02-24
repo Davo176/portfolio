@@ -1,6 +1,6 @@
 import { PageHeader, SectionHeader } from "../../components";
 
-function BlockyCode(props) {
+function BlockyCode() {
     return (
         <div>
             <PageHeader>
@@ -9,7 +9,7 @@ function BlockyCode(props) {
             <SectionHeader>
                 <span>Background</span>
             </SectionHeader>
-            <p className="pt-2">My High-School 'Game Design' project was a game that was supposed to help children learn how to code.</p>
+            <p className="pt-2">My High-School &apos;Game Design&apos; project was a game that was supposed to help children learn how to code.</p>
             <p>
                 This was developed in <b>Game Maker 2</b> where I implemented a drag-and-drop system, where you could order code blocks to move a robot around a
                 level to reach a goal. Note that I did not draw all the graphics.
@@ -23,7 +23,6 @@ function BlockyCode(props) {
                     height="315"
                     src="https://www.youtube.com/embed/9HJHqExkxUU?si=sR0IDu39tOxi1kse"
                     title="YouTube video player"
-                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
                 ></iframe>

@@ -1,6 +1,53 @@
 import { PageHeader, SectionHeader } from "../../components";
+import { AgChartsReact } from "ag-charts-react";
 
-function AflFantasyExtender(props) {
+function getData() {
+    return [
+        {
+            quarter: "Q1",
+            petrol: 200,
+            diesel: 100,
+        },
+        {
+            quarter: "Q2",
+            petrol: 300,
+            diesel: 130,
+        },
+        {
+            quarter: "Q3",
+            petrol: 350,
+            diesel: 160,
+        },
+        {
+            quarter: "Q4",
+            petrol: 400,
+            diesel: 200,
+        },
+    ];
+}
+
+const chartOptions = {
+    title: {
+        text: "Annual Fuel Expenditure",
+    },
+    series: [
+        {
+            type: "line",
+            xKey: "quarter",
+            yKey: "petrol",
+            yName: "Petrol",
+        },
+        {
+            type: "line",
+            xKey: "quarter",
+            yKey: "diesel",
+            yName: "Diesel",
+        },
+    ],
+    data: getData(),
+};
+
+function AflFantasyExtender() {
     return (
         <div>
             <PageHeader>
@@ -10,21 +57,21 @@ function AflFantasyExtender(props) {
                 <span>Background</span>
             </SectionHeader>
             <p className="pt-2">
-                I really enjoy playing AFL Fantasy, specifically the 'Salary Cap' game-mode. In this you select a team of 30 players to fit inside a salary cap.
-                Players score points based off how well they perform in their real game, and the team which scores the most points throughout the year wins! The
-                game opens around christmas time, and until the first game, you can make as many changes to your team as you like.
+                I really enjoy playing AFL Fantasy, specifically the &apos;Salary Cap&apos; game-mode. In this you select a team of 30 players to fit inside a
+                salary cap. Players score points based off how well they perform in their real game, and the team which scores the most points throughout the
+                year wins! The game opens around christmas time, and until the first game, you can make as many changes to your team as you like.
             </p>
             <p>
-                I created this chrome extension to solve a problem that dedicated players had, you couldn't save different versions of your fantasy team. Users
-                would take screenshots, and painstakingly swap between different versions of your team, which takes a long time. This is the problem I fixed
-                with my first feature, the <b>Version Manager</b>.
+                I created this chrome extension to solve a problem that dedicated players had, you couldn&apos;t save different versions of your fantasy team.
+                Users would take screenshots, and painstakingly swap between different versions of your team, which takes a long time. This is the problem I
+                fixed with my first feature, the <b>Version Manager</b>.
             </p>
             <SectionHeader>
                 <span>Description</span>
             </SectionHeader>
             <p>
-                My chrome extension seemlessly inserts itself into the application, allowing users to create different "versions" of there teams, and revisit
-                them later.
+                My chrome extension seemlessly inserts itself into the application, allowing users to create different &apos;versions&apos; of there teams, and
+                revisit them later.
             </p>
             <p>
                 The next year, I added some more features that can be used throughout the year. I added a <b>Bye-Round Manager</b> and <b>Fixture Analyser</b>{" "}
@@ -39,17 +86,22 @@ function AflFantasyExtender(props) {
                     height="315"
                     src="https://www.youtube.com/embed/cxRZbMwU0KA?si=x24LkKnxMsiET_y5"
                     title="YouTube video player"
-                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
                 ></iframe>
             </div>
+            {/* <SectionHeader>
+                <span>Dashboard</span>
+            </SectionHeader>
+            <p>
+                <AgChartsReact options={chartOptions} />
+            </p> */}
             <SectionHeader>
                 <span>Challenges</span>
             </SectionHeader>
             <p>
-                Originally I wasn't going to build a chrome extension, I wanted this to be a stand-alone web-app, but when I tried requesting the Afl-Fantasy
-                API from my page I ran into two issues, Auth and Cors. Both of these were solved by moving to a chrome extension.
+                Originally I wasn&apos;t going to build a chrome extension, I wanted this to be a stand-alone web-app, but when I tried requesting the
+                Afl-Fantasy API from my page I ran into two issues, Auth and Cors. Both of these were solved by moving to a chrome extension.
             </p>
             <p>Chrome extensions load in once the DOM loads, however the afl fantasy website uses server side rendering to</p>
             <SectionHeader>

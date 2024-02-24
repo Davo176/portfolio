@@ -1,6 +1,6 @@
 import { PageHeader, SectionHeader } from "../../components";
 
-function Nightingale(props) {
+function Nightingale() {
     return (
         <div>
             <PageHeader>
@@ -10,9 +10,9 @@ function Nightingale(props) {
                 <span>Background</span>
             </SectionHeader>
             <p className="pt-2">
-                In my final year of University, I had a subject where you had to pitch a business in the Technology field. My group pitched 'Nightingale', a LLM
-                powered, customisable customer support agent for small businesses. I produced a demo that answered questions about our course, and a seperate
-                demo for FYI.
+                In my final year of University, I had a subject where you had to pitch a business in the Technology field. My group pitched
+                &apos;Nightingale&apos;, a LLM powered, customisable customer support agent for small businesses. I produced a demo that answered questions
+                about our course, and a seperate demo for FYI.
             </p>
             <p className="pt-2">
                 Our pitch made the top 5 in the subject, and received really positive feedback from the judges, which was incredibly satisfying
