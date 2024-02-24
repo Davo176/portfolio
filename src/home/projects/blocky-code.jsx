@@ -19,8 +19,7 @@ function BlockyCode() {
             </SectionHeader>
             <div className="flex justify-center">
                 <iframe
-                    width="560"
-                    height="315"
+                    style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
                     src="https://www.youtube.com/embed/9HJHqExkxUU?si=sR0IDu39tOxi1kse"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

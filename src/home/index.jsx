@@ -52,36 +52,36 @@ function Home() {
     return (
         <>
             <div className="flex w-full flex-col items-center justify-center">
-                <div className="w-3/5 pt-3">
-                    <div className="flex flex-row items-center justify-between py-4 ">
+                <div className="w-5/6 pt-3 lg:w-3/5">
+                    <div className="flex flex-row items-center justify-between py-4">
                         <div className="flex flex-row items-center gap-3">
                             <img src="/profile-picture.jpg" className="h-8 rounded-full" />
                             <h2 className="text-lg  font-semibold">Portfolio</h2>
                         </div>
                         <div className="flex flex-row items-center gap-3">
-                            <button className="flex flex-row items-center gap-1 rounded-md bg-gray-100 p-2 text-sm font-semibold">
+                            <button className="hidden flex-row items-center gap-1 rounded-md bg-gray-100 p-2 text-sm font-semibold lg:flex">
                                 <Pin className="h-4" />
                                 Pin
                             </button>
-                            <button className="flex flex-row items-center gap-1 rounded-md bg-gray-100 p-2 text-sm font-semibold">
+                            <button className="hidden flex-row items-center gap-1 rounded-md bg-gray-100 p-2 text-sm font-semibold lg:flex">
                                 <Eye className="h-4" />
                                 Watch
                             </button>
                         </div>
                     </div>
-                    <div className="flex flex-row gap-8 border-t-2 pt-2">
-                        <div className="flex w-5/6 flex-col gap-6">
-                            <div className="flex flex-row items-center justify-between">
-                                <div className="flex flex-row items-center gap-2 pt-4">
+                    <div className="flex flex-row border-t-2 pt-2 lg:gap-8">
+                        <div className="flex flex-col gap-6 lg:w-5/6">
+                            <div className="flex flex-row items-center justify-between pt-4">
+                                <div className="flex flex-row items-center gap-2 ">
                                     <button className="flex flex-row items-center gap-1 rounded-md bg-gray-100 p-2 text-sm font-semibold">
                                         <GitBranch className="h-4" />
                                         main
                                         <ChevronDown className="h-4" />
                                     </button>
-                                    <div className="flex items-center">
+                                    <div className="hidden items-center lg:flex">
                                         <GitBranch className="h-4" /> 0 Branches
                                     </div>
-                                    <div className="flex items-center">
+                                    <div className="hidden items-center lg:flex">
                                         <Tag className="h-4" /> 0 Tags
                                     </div>
                                 </div>
@@ -101,11 +101,11 @@ function Home() {
                                     <div className="flex flex-row items-center gap-3">
                                         <img src="/profile-picture.jpg" className="h-8 rounded-full" />
                                         <div className="font-semibold">Davo176</div>
-                                        <div className="text-sm  font-light">Start Portfolio</div>
+                                        <div className="hidden text-sm font-light lg:block">Start Portfolio</div>
                                     </div>
                                     <div className="flex flex-row items-center gap-3">
-                                        <div className="text-sm font-light">a731acb</div>
-                                        <div className="text-sm font-light">2 weeks ago</div>
+                                        <div className="hidden text-sm font-light lg:block">a731acb</div>
+                                        <div className="hidden text-sm font-light lg:block">2 weeks ago</div>
                                         <div className="flex flex-row items-center gap-1">
                                             <Clock className="h-4 text-sm font-light" />
                                             <div className="font-semibold">13 Commits</div>
@@ -140,7 +140,7 @@ function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-1/5">
+                        <div className="hidden w-1/5 lg:block">
                             <div className="flex flex-row items-center justify-between py-2">
                                 <div className="font-medium">About</div>
                                 <Settings className="h-4" />
@@ -162,10 +162,6 @@ function Home() {
                                 <div className="flex flex-row items-center  ">
                                     <Linkedin className="h-4" />
                                     linkedin.com/in/will-e-davis/
-                                </div>
-                                <div className="flex flex-row items-center  ">
-                                    <GitFork className="h-4" />
-                                    Forks
                                 </div>
                             </div>
                             <hr />
@@ -239,12 +235,12 @@ function Project({ project, selected, setSelected, hasClicked, setHasClicked }) 
                     setHasClicked(true);
                 }}
             >
-                <div className="flex w-1/3 flex-row items-center gap-2">
+                <div className="flex flex-row items-center gap-2 lg:w-1/3">
                     {Component}
                     <div>{project.name}</div>
                 </div>
-                <div className="flex self-start text-sm font-light">{project.message}</div>
-                <div className="flex-grow text-right text-sm font-light">{project.time}</div>
+                <div className="hidden self-start text-sm font-light lg:flex">{project.message}</div>
+                <div className="hidden flex-grow text-right text-sm font-light lg:block">{project.time}</div>
             </div>
         </motion.div>
     );

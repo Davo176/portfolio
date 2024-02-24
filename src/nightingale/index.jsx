@@ -80,7 +80,7 @@ function NightingaleChat() {
 function NightingaleBubble() {
     const [chatOpen, setChatOpen] = useState(false);
     return (
-        <div className="fixed bottom-8 right-8">
+        <div className="bottom-8 right-8 hidden lg:fixed">
             {chatOpen && (
                 <AnimatePresence>
                     <motion.div

@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import ProfilePicture from "/profile-picture.jpg";
 import { NightingaleBubble } from "./nightingale";
-import { Menu, Code, CircleDot, GitPullRequestArrow, PlayCircle, PanelsTopLeft, ShieldAlert, LineChart, Settings } from "lucide-react";
+import { Menu, Code, CircleDot, GitPullRequestArrow, PlayCircle, PanelsTopLeft, ShieldAlert, LineChart, Settings, LayoutDashboard } from "lucide-react";
 
 function Tab(props) {
     return (
@@ -30,13 +30,13 @@ function App() {
                     </div>
                     <div className="flex flex-row gap-4">
                         <Tab icon={Code} name={"Code"} selected={true} />
-                        <Tab icon={CircleDot} name={"Issues"} />
-                        <Tab icon={GitPullRequestArrow} name={"Pull Requests"} />
+                        <Tab icon={LayoutDashboard} name={"Dashboard"} />
+                        {/* <Tab icon={GitPullRequestArrow} name={"Pull Requests"} />
                         <Tab icon={PlayCircle} name={"Actions"} />
                         <Tab icon={PanelsTopLeft} name={"Projects"} />
                         <Tab icon={ShieldAlert} name={"Security"} />
                         <Tab icon={LineChart} name={"Insights"} />
-                        <Tab icon={Settings} name={"Settings"} />
+                        <Tab icon={Settings} name={"Settings"} /> */}
                     </div>
                 </div>
                 <Outlet />

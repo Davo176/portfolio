@@ -123,8 +123,8 @@ function AflFantasyExtender() {
             </SectionHeader>
             <div className="flex justify-center">
                 <iframe
-                    width="560"
-                    height="315"
+                    // width="full"
+                    style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
                     src="https://www.youtube.com/embed/cxRZbMwU0KA?si=x24LkKnxMsiET_y5"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -136,7 +136,7 @@ function AflFantasyExtender() {
                     <SectionHeader>
                         <span>Dashboard</span>
                     </SectionHeader>
-                    <p>
+                    <p className="w-5/6 lg:w-full">
                         <AgChartsReact options={chartOptions} />
                     </p>
                 </>
