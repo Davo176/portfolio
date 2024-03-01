@@ -1,14 +1,23 @@
-import { Link, Outlet } from "react-router-dom";
-import ProfilePicture from "/profile-picture.jpg";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { NightingaleBubble } from "./nightingale";
 import { Menu, Code, CircleDot, GitPullRequestArrow, PlayCircle, PanelsTopLeft, ShieldAlert, LineChart, Settings, LayoutDashboard } from "lucide-react";
+import { useEffect, useState } from "react";
 
 function Tab(props) {
+    const [isSelected, setIsSelected] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        setIsSelected(window.location.pathname === props.url);
+    }, [location.pathname]);
+
     return (
-        <div className={`flex items-center gap-2 pb-3  ${props.selected ? "border-b-2 border-b-orange-400 font-semibold " : "text-gray-600"}`}>
-            <props.icon className="h-4 text-gray-600" />
-            {props.name}
-        </div>
+        <Link to={props.url}>
+            <div className={`flex items-center gap-2 pb-3  ${isSelected ? "border-b-2 border-b-orange-400 font-semibold " : "text-gray-600"}`}>
+                <props.icon className="h-4 text-gray-600" />
+                {props.name}
+            </div>
+        </Link>
     );
 }
 
@@ -29,8 +38,8 @@ function App() {
                         <img src="/profile-picture.jpg" className="h-8 rounded-full" />
                     </div>
                     <div className="flex flex-row gap-4">
-                        <Tab icon={Code} name={"Code"} selected={true} />
-                        <Tab icon={LayoutDashboard} name={"Dashboard"} />
+                        <Tab icon={Code} name={"Code"} selected={true} url={"/"} />
+                        <Tab icon={LayoutDashboard} name={"Dashboard"} url={"/dashboard"} />
                         {/* <Tab icon={GitPullRequestArrow} name={"Pull Requests"} />
                         <Tab icon={PlayCircle} name={"Actions"} />
                         <Tab icon={PanelsTopLeft} name={"Projects"} />

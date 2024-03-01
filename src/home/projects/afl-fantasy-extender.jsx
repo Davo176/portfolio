@@ -1,94 +1,5 @@
-import { useEffect, useState } from "react";
-import { PageHeader, SectionHeader } from "../../components";
-import { AgChartsReact } from "ag-charts-react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-
-function getData() {
-    return [
-        {
-            quarter: "Q1",
-            petrol: 200,
-            diesel: 100,
-        },
-        {
-            quarter: "Q2",
-            petrol: 300,
-            diesel: 130,
-        },
-        {
-            quarter: "Q3",
-            petrol: 350,
-            diesel: 160,
-        },
-        {
-            quarter: "Q4",
-            petrol: 400,
-            diesel: 200,
-        },
-    ];
-}
-
-const URL = "https://whimsical-trousers-production.up.railway.app";
-async function getContent() {
-    return await fetch(URL + "/dashboard", {
-        headers: {},
-        mode: "cors",
-        redirect: "follow",
-        referrerPolicy: "no-referrer",
-    })
-        .then((res) => res.json())
-        .then((data) => {
-            try {
-                data.sort((a, b) => new Date(b.date) - new Date(a.date));
-                let total_users = 0;
-                let previous_date = undefined;
-                let grouped = [];
-                for (let user of data) {
-                    if (new Date(user.created_on).toDateString() === previous_date) {
-                        grouped.at(-1).users += 1;
-                        total_users += 1;
-                    } else {
-                        grouped.push({
-                            users: total_users,
-                            date: new Date(user.created_on).toDateString(),
-                        });
-                        total_users += 1;
-                        previous_date = new Date(user.created_on).toDateString();
-                    }
-                }
-                console.log(grouped);
-                return grouped;
-            } catch (err) {
-                console.log(err);
-            }
-        });
-}
-
+import { PageHeader, SectionHeader, TotalUsersGraph } from "../../components";
 function AflFantasyExtender() {
-    const queryClient = useQueryClient();
-    const dashboard = useQuery({ queryKey: ["dashboard_data"], queryFn: getContent });
-
-    const [chartOptions, setChartOptions] = useState();
-
-    useEffect(() => {
-        if (dashboard.isSuccess) {
-            setChartOptions({
-                title: {
-                    text: "Total Users",
-                },
-                series: [
-                    {
-                        type: "line",
-                        xKey: "date",
-                        yKey: "users",
-                        yName: "Users",
-                    },
-                ],
-                data: dashboard.data,
-            });
-        }
-    }, [dashboard.isSuccess]);
-
     return (
         <div>
             <PageHeader>
@@ -131,16 +42,13 @@ function AflFantasyExtender() {
                     allowfullscreen
                 ></iframe>
             </div>
-            {dashboard.isSuccess && chartOptions && (
-                <>
-                    <SectionHeader>
-                        <span>Dashboard</span>
-                    </SectionHeader>
-                    <p className="w-5/6 lg:w-full">
-                        <AgChartsReact options={chartOptions} />
-                    </p>
-                </>
-            )}
+
+            <SectionHeader>
+                <span>Dashboard</span>
+            </SectionHeader>
+            <p className="w-5/6 lg:w-full">
+                <TotalUsersGraph />
+            </p>
             <SectionHeader>
                 <span>Challenges</span>
             </SectionHeader>

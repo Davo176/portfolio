@@ -11,6 +11,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 
 import Home from "./home";
+import { Dashboard } from "./dashboard";
 import { NightingaleContentAdmin, LoginFirst } from "./nightingale/content-admin";
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
+            },
+            {
+                path: "/dashboard",
+                element: <Dashboard />,
             },
             {
                 path: "/nightingale/content-admin",
