@@ -3,8 +3,14 @@ function AflFantasyExtender() {
     return (
         <div>
             <PageHeader>
-                <span>AFL Fantasy Extender</span>
+                <span>Game Changer</span>
             </PageHeader>
+            <SectionHeader>
+                <span>Link to Site</span>
+            </SectionHeader>
+            <p className="pt-2">
+                <a href="www.gamechangerfantasyfooty.com">Game Changer</a>
+            </p>
             <SectionHeader>
                 <span>Background</span>
             </SectionHeader>
@@ -28,6 +34,10 @@ function AflFantasyExtender() {
             <p>
                 The next year, I added some more features that can be used throughout the year. I added a <b>Bye-Round Manager</b> and <b>Fixture Analyser</b>{" "}
                 to another section of the app, which users can easily refer to in order to make better decisions in-season.
+            </p>
+            <p>
+                I have continued to improve this over the next couple of years, adding features that estimate how a players price will change depending on
+                scores. As well as features that return the optimal trades under salary and score constraints.
             </p>
             <SectionHeader>
                 <span>Video</span>

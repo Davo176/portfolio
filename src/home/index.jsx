@@ -29,8 +29,8 @@ function Home() {
         { id: 6, name: "FYI Software", message: "Software Engineer", time: "December 2023 - Now", type: "work", component: FyiSoftware },
         {
             id: 4,
-            name: "afl-fantasy-extender",
-            message: "Chrome extension for improving aflfantasy website",
+            name: "game-changer",
+            message: "Chrome extension for improving afl-fantasy website",
             time: "January 2023 - Now",
             type: "project",
             component: AflFantasyExtender,
