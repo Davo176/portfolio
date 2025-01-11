@@ -81,4 +81,26 @@ function TotalUsersFigure() {
     );
 }
 
-export { TotalUsersGraph, TotalUsersFigure };
+function PayingUsersFigure() {
+    const queryClient = useQueryClient();
+    const dashboard = useQuery({ queryKey: ["dashboard_data"], queryFn: getAflFantasyContent });
+
+    const [payingUserCount, setPayingUserCount] = useState(0);
+
+    useEffect(() => {
+        if (dashboard.isSuccess) {
+            let data = dashboard.data;
+
+            setPayingUserCount(data.filter((u) => u.has_paid).length);
+        }
+    }, [dashboard.isSuccess]);
+
+    return (
+        <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-4">
+            <div className="">Paying Users</div>
+            <div className="text-7xl">{payingUserCount}</div>
+        </div>
+    );
+}
+
+export { TotalUsersGraph, TotalUsersFigure, PayingUsersFigure };

@@ -8,8 +8,8 @@ function AflFantasyExtender() {
             <SectionHeader>
                 <span>Link to Site</span>
             </SectionHeader>
-            <p className="pt-2">
-                <a href="www.gamechangerfantasyfooty.com">Game Changer</a>
+            <p className="pt-2 text-blue-400 underline">
+                <a href="https://www.gamechangerfantasyfooty.com">Game Changer</a>
             </p>
             <SectionHeader>
                 <span>Background</span>
