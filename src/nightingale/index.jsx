@@ -57,7 +57,7 @@ function NightingaleChat() {
             <div className="calsans w-full rounded-t-2xl bg-slate-700 p-3 text-white">Nightingale</div>
             <div className="h- flex h-[36rem] w-full flex-col justify-between rounded-b-2xl bg-gray-300 p-2">
                 <div className="no-scrollbar flex flex-col gap-2 overflow-scroll">
-                    <Answer answer="Hi, I am Nightingale, Will's Virtual Assistant" />
+                    <Answer answer="Hi, I am Nightingale, Will's Virtual Assistant. My content is no longer actively managed so I might struggle to answer some questions." />
                     {question && <Question question={question} />}
                     {answer && <Answer answer={answer} />}
                 </div>
