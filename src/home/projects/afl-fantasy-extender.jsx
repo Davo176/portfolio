@@ -60,14 +60,6 @@ function AflFantasyExtender() {
                 <TotalUsersGraph />
             </p>
             <SectionHeader>
-                <span>Challenges</span>
-            </SectionHeader>
-            <p>
-                Originally I wasn&apos;t going to build a chrome extension, I wanted this to be a stand-alone web-app, but when I tried requesting the
-                Afl-Fantasy API from my page I ran into two issues, Auth and Cors. Both of these were solved by moving to a chrome extension.
-            </p>
-            <p>Chrome extensions load in once the DOM loads, however the afl fantasy website uses server side rendering to</p>
-            <SectionHeader>
                 <span>Tech Stack</span>
             </SectionHeader>
             <p>

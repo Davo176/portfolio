@@ -19,7 +19,7 @@ import {
     User,
 } from "lucide-react";
 import { AflFantasyExtender, Nightingale, BlockModel, BlockyCode, URLShortner, FyiSoftware, WillDavis } from "./projects";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 function Home() {
@@ -49,6 +49,20 @@ function Home() {
     ];
     const [selected, setSelected] = useState(projects[0]);
     const [hasClicked, setHasClicked] = useState(false);
+    const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    function handleClickOutside(event) {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setContactDropdownOpen(false);
+        }
+    }
+
     return (
         <>
             <div className="flex w-full flex-col items-center justify-center">
@@ -89,11 +103,40 @@ function Home() {
                                     <button className="rounded-md bg-gray-100 p-2">
                                         <Plus className="h-4" />
                                     </button>
-                                    <button className="flex flex-row items-center gap-1 rounded-md bg-green-700 p-2 text-sm font-semibold text-white">
-                                        <Mail className="h-4" />
-                                        Contact
-                                        <ChevronDown className="h-4" />
-                                    </button>
+                                    <div className="relative inline-block" ref={dropdownRef}>
+                                        <button
+                                            className="flex flex-row items-center gap-1 rounded-md bg-green-700 p-2 text-sm font-semibold text-white"
+                                            onClick={() => {
+                                                setContactDropdownOpen((state) => !state);
+                                            }}
+                                        >
+                                            <Mail className="h-4" />
+                                            Contact
+                                            <ChevronDown className="h-4" />
+                                        </button>
+                                        {contactDropdownOpen && (
+                                            <div className="absolute right-0 mt-2 w-56 rounded border bg-white p-2 shadow-lg">
+                                                <div className="flex flex-col gap-2 py-4 text-sm font-light text-gray-400">
+                                                    <div className="flex flex-row items-center gap-2">
+                                                        <Phone className="h-4" />
+                                                        (+61 450 006 978)
+                                                    </div>
+                                                    <div className="flex flex-row items-center gap-2 ">
+                                                        <Mail className="h-4" />
+                                                        will_davis@outlook.com.au
+                                                    </div>
+                                                    <div className="flex flex-row items-center gap-2 ">
+                                                        <Github className="h-4" />
+                                                        github.com/Davo176
+                                                    </div>
+                                                    <div className="flex flex-row items-center gap-2 ">
+                                                        <Linkedin className="h-4" />
+                                                        linkedin.com/in/will-e-davis/
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                             <div className="flex flex-col rounded-md border border-gray-100">
@@ -145,25 +188,12 @@ function Home() {
                                 <div className="font-medium">About</div>
                                 <Settings className="h-4" />
                             </div>
-                            <div>I am Will Davis</div>
-                            <div className="flex flex-col gap-2 py-4 text-sm font-light text-gray-400">
-                                <div className="flex flex-row items-center  ">
-                                    <Phone className="h-4" />
-                                    (+61 450 006 978)
-                                </div>
-                                <div className="flex flex-row items-center  ">
-                                    <Mail className="h-4" />
-                                    will_davis@outlook.com.au
-                                </div>
-                                <div className="flex flex-row items-center  ">
-                                    <Github className="h-4" />
-                                    github.com/Davo176
-                                </div>
-                                <div className="flex flex-row items-center  ">
-                                    <Linkedin className="h-4" />
-                                    linkedin.com/in/will-e-davis/
-                                </div>
+                            <div>Hey, I'm Will Davis! I'm a software engineer passionate about building intuitive and scalable applications.</div>
+                            <div>
+                                I specialize in TypeScript, React, and backend development with Node.js & Express.js. My projects range from AFL Fantasy tools
+                                to AI-powered applications and developer utilities.
                             </div>
+                            <div>I love solving complex problems, working with modern frameworks, and exploring new technologies.</div>
                             <hr />
                             <div className="pt-2 font-medium">Languages</div>
                             <div className="flex flex-col gap-1 py-2 text-sm font-light text-gray-400">
