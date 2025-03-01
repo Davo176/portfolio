@@ -48,7 +48,7 @@ async function deleteContentById(content, token) {
 async function loginPassword({ password }) {
     // You can make an API call to authenticate the user here.
     // For simplicity, let's just pretend we're making an API call and returning a user object.
-    return await fetch(URL + "/login", {
+    return await fetch("https://api.w-davis.com/login", {
         method: "post",
         headers: {
             "x-wd-api-key": "pk-EcI1Nn2daolEuHWe5G0pE7shYEQTaoNr9kwWuESXTPC7b1wBzvfd0QH0alKGkSAV",
