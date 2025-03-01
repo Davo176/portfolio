@@ -55,7 +55,7 @@ function NightingaleChat() {
     return (
         <>
             <div className="calsans w-full rounded-t-2xl bg-slate-700 p-3 text-white">Nightingale</div>
-            <div className="h- flex h-[36rem] w-full flex-col justify-between rounded-b-2xl bg-gray-300 p-2">
+            <div className="flex h-[36rem] w-full flex-col justify-between rounded-b-2xl bg-gray-300 p-2 pb-4">
                 <div className="no-scrollbar flex flex-col gap-2 overflow-scroll">
                     <Answer answer="Hi, I am Nightingale, Will's Virtual Assistant!" />
                     {question && <Question question={question} />}
@@ -67,6 +67,17 @@ function NightingaleChat() {
                         placeholder="Ask a Question"
                         value={textAreaContent}
                         onChange={(e) => setTextAreaContent(e.target.value)}
+                        onKeyDown={(e) => {
+                            // e.preventDefault();
+                            console.log(e);
+                            if (e.code === "Enter") {
+                                if (!e.shiftKey) {
+                                    submitQuestion(e);
+                                } else {
+                                    setTextAreaContent((content) => content + "\n");
+                                }
+                            }
+                        }}
                     />
                     <button type="submit">
                         <FontAwesomeIcon icon={faPlay} className="pl-2" />
@@ -80,14 +91,15 @@ function NightingaleChat() {
 function NightingaleBubble() {
     const [chatOpen, setChatOpen] = useState(false);
     return (
-        <div className="bottom-8 right-8 hidden lg:fixed lg:block">
+        // <div className="bottom-8 right-8 hidden lg:fixed lg:block">
+        <div className="fixed bottom-8 right-8 block">
             {chatOpen && (
                 <AnimatePresence>
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="absolute bottom-20 right-24 flex h-fit w-[30rem] flex-col items-center"
+                        className="absolute bottom-20 right-0 flex h-fit w-[85vw] flex-col items-center lg:right-24 lg:w-[30rem]"
                     >
                         <NightingaleChat />
                     </motion.div>
