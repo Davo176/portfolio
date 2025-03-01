@@ -36,7 +36,6 @@ function Home() {
             component: AflFantasyExtender,
         },
         { id: 2, name: "nightingale", message: "AI customer support agent", time: "September 2023 - Now", type: "project", component: Nightingale },
-        { id: 1, name: "url-shortner", message: "An endpoint that shortens urls", time: "January 2024", type: "project", component: URLShortner },
         { id: 3, name: "blocky-code", message: "Learn-to-code game for children", time: "June 2020 - November 2020", type: "project", component: BlockyCode },
         {
             id: 5,
@@ -46,6 +45,7 @@ function Home() {
             type: "project",
             component: BlockModel,
         },
+        { id: 1, name: "url-shortner", message: "An endpoint that shortens urls", time: "January 2024", type: "project", component: URLShortner },
     ];
     const [selected, setSelected] = useState(projects[0]);
     const [hasClicked, setHasClicked] = useState(false);
@@ -115,7 +115,7 @@ function Home() {
                                             <ChevronDown className="h-4" />
                                         </button>
                                         {contactDropdownOpen && (
-                                            <div className="absolute right-0 mt-2 w-56 rounded border bg-white p-2 shadow-lg">
+                                            <div className="absolute right-0 z-10 mt-2 w-56 rounded border bg-white p-2 shadow-lg">
                                                 <div className="flex flex-col gap-2 py-4 text-sm font-light text-gray-400">
                                                     <div className="flex flex-row items-center gap-2">
                                                         <Phone className="h-4" />
@@ -127,11 +127,15 @@ function Home() {
                                                     </div>
                                                     <div className="flex flex-row items-center gap-2 ">
                                                         <Github className="h-4" />
-                                                        github.com/Davo176
+                                                        <a href="https://www.github.com/Davo176" target="_blank" referrerPolicy="no-referrer">
+                                                            github.com/Davo176
+                                                        </a>
                                                     </div>
                                                     <div className="flex flex-row items-center gap-2 ">
                                                         <Linkedin className="h-4" />
-                                                        linkedin.com/in/will-e-davis/
+                                                        <a href="https://www.linkedin.com/in/will-e-davis/" target="_blank" referrerPolicy="no-referrer">
+                                                            linkedin.com/in/will-e-davis/
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,16 +148,16 @@ function Home() {
                                     <div className="flex flex-row items-center gap-3">
                                         <img src="/profile-picture.jpg" className="h-8 rounded-full" />
                                         <div className="font-semibold">Davo176</div>
-                                        <div className="hidden text-sm font-light lg:block">Start Portfolio</div>
+                                        <div className="hidden text-sm font-light lg:block">Click below to learn about my Jobs and Projects</div>
                                     </div>
-                                    <div className="flex flex-row items-center gap-3">
+                                    {/* <div className="flex flex-row items-center gap-3">
                                         <div className="hidden text-sm font-light lg:block">a731acb</div>
                                         <div className="hidden text-sm font-light lg:block">2 weeks ago</div>
                                         <div className="flex flex-row items-center gap-1">
                                             <Clock className="h-4 text-sm font-light" />
                                             <div className="font-semibold">13 Commits</div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 {projects.map((project) => {
                                     return (
@@ -188,12 +192,18 @@ function Home() {
                                 <div className="font-medium">About</div>
                                 <Settings className="h-4" />
                             </div>
-                            <div>Hey, I'm Will Davis! I'm a software engineer passionate about building intuitive and scalable applications.</div>
-                            <div>
+                            <div className="text-sm font-light text-gray-400">
+                                Hey, I'm Will Davis! I'm a software engineer passionate about building intuitive and scalable applications.
+                            </div>
+                            <br />
+                            <div className="text-sm font-light text-gray-400">
                                 I specialize in TypeScript, React, and backend development with Node.js & Express.js. My projects range from AFL Fantasy tools
                                 to AI-powered applications and developer utilities.
                             </div>
-                            <div>I love solving complex problems, working with modern frameworks, and exploring new technologies.</div>
+                            <br />
+                            <div className="text-sm font-light text-gray-400">
+                                I love solving complex problems, working with modern frameworks, and exploring new technologies.
+                            </div>
                             <hr />
                             <div className="pt-2 font-medium">Languages</div>
                             <div className="flex flex-col gap-1 py-2 text-sm font-light text-gray-400">
