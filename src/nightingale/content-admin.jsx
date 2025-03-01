@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Edit, Trash2, PlusCircle, Check } from "lucide-react";
 
+const URL = "https://api.w-davis.com";
 // const URL = "http://localhost:3999";
 async function getContent(token) {
     return await fetch(URL + "/nightingale/content", {
