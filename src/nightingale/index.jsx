@@ -99,7 +99,7 @@ function NightingaleBubble() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="absolute bottom-20 right-0 flex h-fit w-[85vw] flex-col items-center lg:right-24 lg:w-[30rem]"
+                        className="absolute bottom-32 right-0 flex h-fit w-[85vw] flex-col items-center lg:bottom-20 lg:right-24 lg:w-[30rem]"
                     >
                         <NightingaleChat />
                     </motion.div>
