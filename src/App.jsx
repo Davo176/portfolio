@@ -37,9 +37,14 @@ function App() {
                         {/* <div>broken?</div> */}
                         <img src="/profile-picture.jpg" className="h-8 rounded-full" />
                     </div>
-                    <div className="flex flex-row gap-4">
-                        <Tab icon={Code} name={"Code"} selected={true} url={"/"} />
-                        <Tab icon={LayoutDashboard} name={"Dashboard"} url={"/dashboard"} />
+                    <div className="flex flex-row justify-between">
+                        <div className="flex flex-row gap-4">
+                            <Tab icon={Code} name={"Code"} selected={true} url={"/"} />
+                            <Tab icon={LayoutDashboard} name={"Dashboard"} url={"/dashboard"} />
+                        </div>
+                        <div className="flex flex-row gap-4">
+                            <Tab icon={Settings} name={"Portfolio Admin"} url={"/nightingale/content-admin"} />
+                        </div>
                         {/* <Tab icon={GitPullRequestArrow} name={"Pull Requests"} />
                         <Tab icon={PlayCircle} name={"Actions"} />
                         <Tab icon={PanelsTopLeft} name={"Projects"} />
