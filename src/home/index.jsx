@@ -35,7 +35,7 @@ function Home() {
             type: "project",
             component: AflFantasyExtender,
         },
-        { id: 2, name: "nightingale", message: "AI customer support agent", time: "September 2023 - Now", type: "project", component: Nightingale },
+        { id: 2, name: "nightingale", message: "AI customer support agent", time: "September 2023 - Jan 2024", type: "project", component: Nightingale },
         { id: 3, name: "blocky-code", message: "Learn-to-code game for children", time: "June 2020 - November 2020", type: "project", component: BlockyCode },
         {
             id: 5,
