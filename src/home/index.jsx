@@ -190,7 +190,6 @@ function Home() {
                         <div className="hidden w-1/5 lg:block">
                             <div className="flex flex-row items-center justify-between py-2">
                                 <div className="font-medium">About</div>
-                                <Settings className="h-4" />
                             </div>
                             <div className="text-sm font-light text-gray-400">
                                 Hey, I'm Will Davis! I'm a software engineer passionate about building intuitive and scalable applications.
