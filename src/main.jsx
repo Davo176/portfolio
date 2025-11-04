@@ -33,8 +33,10 @@ const router = createBrowserRouter([
             },
             {
                 path: "/example",
-                element: <div>
-                    <code>{`
+                element: (
+                    <div>
+                        <code>
+                            {`
                     
 <html>
   <head>
@@ -83,9 +85,62 @@ const router = createBrowserRouter([
     <script type="module" src="script.js"></script>
   </body>
 </html>`}
+                        </code>
+                    </div>
+                ),
+            },
+            {
+                path: "password-style",
+                element: (
+                    <code>
+                        {`* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit-button {
+  padding: 20px 40px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: 3px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#submit-button:hover {
+  background-color: #45a049;
+}
+
+#submit-button:active {
+  transform: scale(0.98);
+}
+
+#input-field {
+  padding: 10px 5px;
+  font-size: 18px;
+  border: 3px solid #000;
+  border-radius: 8px;
+}`}
                     </code>
-                </div>
-            }
+                ),
+            },
         ],
     },
 ]);
