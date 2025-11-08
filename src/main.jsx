@@ -92,7 +92,7 @@ const router = createBrowserRouter([
             {
                 path: "password-style",
                 element: (
-                    <code>
+                    <><code>
                         {`* {
   margin: 0;
   padding: 0;
@@ -139,6 +139,38 @@ main {
   border-radius: 8px;
 }`}
                     </code>
+                    <code>
+                        {`<!--
+  Hit RUN to see this project in action!
+  
+  This project will auto-refresh as you edit the HTML, CSS and JS. See README.md for more info (including how to disable auto-refresh and install packages).
+-->
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <main>
+      
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <input id="input-field" type="text" />
+        <button id="submit-button">Submit</button>
+        <div id="output-field"></div>
+      </div>
+      
+    </main>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
+`}
+                    </code></>
                 ),
             },
         ],
