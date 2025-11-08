@@ -92,7 +92,7 @@ const router = createBrowserRouter([
             {
                 path: "password-style",
                 element: (
-                    <><code>
+                    <><code><div>CSS</div>
                         {`* {
   margin: 0;
   padding: 0;
@@ -138,7 +138,7 @@ main {
   border: 3px solid #000;
   border-radius: 8px;
 }`}
-                    </code>
+                    </code><div>html</div>
                     <code>
                         {`<!--
   Hit RUN to see this project in action!
@@ -170,7 +170,25 @@ main {
   </body>
 </html>
 `}
-                    </code></>
+                    </code><div>js</div><code>{`let submitButton = document.getElementById("submit-button");
+submitButton.addEventListener("click", printInputField);
+
+function printInputField() {
+  let input = document.getElementById("input-field");
+  let users_password = input.value;
+  let outputField = document.getElementById("output-field");
+  let rule1 = checkRules(users_password);
+  if (rule1 !== true) {
+    outputField.innerText = rule1;
+  } else {
+    outputField.innerText = "Password is valid";
+  }
+}
+
+function checkRules(users_password) {
+  return true;
+}
+`}</code></>
                 ),
             },
         ],
